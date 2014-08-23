@@ -11,4 +11,11 @@
     <string name="share_chooser_title">How do you want to share?</string>
     <string name="title">Oops! Sorry</string>
     <string name="error_message">Nothing to share. Please click \'Inspire Me!\' to get the quote.</string>
+    <string name="action_overflow">Help</string>
+    <string name="about_us">About</string>
+    <string name="rate">Rate</string>
+    <string name="about_title">About</string>
+    <string name="about_msg">Inspiring Thoughts, is an Inspirational App. It presents you with different 
+        Inspiring quotes which help you to power yourself through a bad day and help you achieve what you dream. 
+        Please share your comments and remarks about the app on developer.priyesh@gmail.com</string>
 </resources>

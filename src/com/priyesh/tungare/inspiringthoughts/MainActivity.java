@@ -2,12 +2,13 @@ package com.priyesh.tungare.inspiringthoughts;
 
 import java.util.Random;
 
+import android.app.Activity;
 import android.app.AlertDialog;
+import android.content.Context;
 import android.content.Intent;
 import android.content.res.Resources;
 import android.graphics.Color;
 import android.os.Bundle;
-import android.support.v4.app.FragmentActivity;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
@@ -16,7 +17,9 @@ import android.widget.Button;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 
-public class MainActivity extends FragmentActivity {
+import com.tjeannin.apprate.AppRate;
+
+public class MainActivity extends Activity {
 	
 	private Button mGetImageButton;  
 	private TextView mTextView;
@@ -25,10 +28,16 @@ public class MainActivity extends FragmentActivity {
 	public final static String TAG = MainActivity.class.getSimpleName();
 	protected String[] mInspiringThoughts;
 	protected int mRandomNumber = 110;
-
+	public static final int MENU_SHARE = Menu.FIRST;
+	public static final int MENU_ABOUT = Menu.FIRST + 1;
+	public static final int MENU_RATE = Menu.FIRST + 2;
+	public static int mCount;
+	public static Context mContext;
+	
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
+		mContext = getApplicationContext();
 		setContentView(R.layout.activity_main);
 		
 		mTextView = (TextView) findViewById(R.id.textView1);
@@ -40,6 +49,7 @@ public class MainActivity extends FragmentActivity {
 		mGetImageButton.setOnClickListener(new OnClickListener() {
 			@Override
 			public void onClick(View v) {
+				mCount++;
 				mRandomNumber = randomGenerator.nextInt(97);
 				setTextOnClick(mRandomNumber);
 			}
@@ -48,7 +58,8 @@ public class MainActivity extends FragmentActivity {
 
 	@Override
 	public boolean onCreateOptionsMenu(Menu menu) {
-		// Inflate the menu; this adds items to the action bar if it is present.
+		// Inflate the menu; this adds items to the action bar if it is present
+		//aboutMenu = menu.findItem(R.id.action_overflow);
 		getMenuInflater().inflate(R.menu.main, menu);
 		return true;
 	}
@@ -59,11 +70,33 @@ public class MainActivity extends FragmentActivity {
 		// Handle action bar item clicks here. The action bar will
 		// automatically handle clicks on the Home/Up button, so long
 		// as you specify a parent activity in AndroidManifest.xml.
-		int id = item.getItemId();
-		if(id == R.id.action_share){
+		
+		switch (item.getItemId()) {
+		case R.id.action_share:
 			sharePost();
+			return true;
+		
+		case R.id.about_us:
+			aboutUs();
+			return true;
+			
+		case R.id.rate:
+			new AppRate(this).init();
+			return true;
+		default:
+			return super.onOptionsItemSelected(item);
 		}
-		return super.onOptionsItemSelected(item);
+	}
+	
+	private void aboutUs(){
+		Intent aboutIntent = new Intent(Intent.ACTION_SEND);
+		aboutIntent.setType("text/plain");
+		AlertDialog.Builder builder = new AlertDialog.Builder(this);
+		builder.setTitle(getString(R.string.about_title));
+		builder.setMessage(getString(R.string.about_msg));
+		builder.setPositiveButton(android.R.string.ok, null);
+		AlertDialog dialog = builder.create();
+		dialog.show();	
 	}
 	
 	private void sharePost() {
@@ -92,6 +125,10 @@ public class MainActivity extends FragmentActivity {
 		mTextView.setText(mInspiringThoughts[mRandomNumber]);
 		mTextView.setTextColor(Color.WHITE);
 		mTextView.setTextSize(24);
+		if(mCount > 10){
+			new AppRate(this).init();
+			mCount = -20;
+		}
 		
 	}
 	

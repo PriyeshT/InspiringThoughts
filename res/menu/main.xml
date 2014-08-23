@@ -5,4 +5,21 @@
         android:icon="@drawable/ic_action_share"
         android:showAsAction="always"
         android:title="@string/action_share" />
+    
+    <item
+        android:id="@+id/action_overflow"
+        android:icon="@drawable/ic_action_overflow"
+        android:showAsAction="always"
+        android:title="@string/action_overflow">
+    	
+    	<menu>
+    	    <item 
+    	        android:id="@+id/about_us"
+    	        android:title="@string/about_us" />
+    	    
+    	    <item 
+    	        android:id="@+id/rate"
+    	        android:title="@string/rate"/>
+    	</menu>
+   </item>
 </menu>

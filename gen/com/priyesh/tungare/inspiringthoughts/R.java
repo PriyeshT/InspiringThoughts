@@ -51,13 +51,17 @@ public final class R {
         public static final int background8=0x7f020017;
         public static final int background9=0x7f020018;
         public static final int custom_btn_orange=0x7f020019;
-        public static final int ic_action_share=0x7f02001a;
-        public static final int ic_launcher=0x7f02001b;
+        public static final int ic_action_overflow=0x7f02001a;
+        public static final int ic_action_share=0x7f02001b;
+        public static final int ic_launcher=0x7f02001c;
     }
     public static final class id {
+        public static final int about_us=0x7f090006;
+        public static final int action_overflow=0x7f090005;
         public static final int action_share=0x7f090004;
         public static final int button1=0x7f090003;
         public static final int linearLayout1=0x7f090001;
+        public static final int rate=0x7f090007;
         public static final int relativelayout1=0x7f090000;
         public static final int textView1=0x7f090002;
     }
@@ -68,12 +72,17 @@ public final class R {
         public static final int main=0x7f080000;
     }
     public static final class string {
+        public static final int about_msg=0x7f06000e;
+        public static final int about_title=0x7f06000d;
+        public static final int about_us=0x7f06000b;
+        public static final int action_overflow=0x7f06000a;
         public static final int action_settings=0x7f060001;
         public static final int action_share=0x7f060006;
         public static final int app_name=0x7f060000;
         public static final int error_message=0x7f060009;
         public static final int inspire_button=0x7f060002;
         public static final int inspire_thoughts=0x7f060003;
+        public static final int rate=0x7f06000c;
         public static final int share=0x7f060004;
         public static final int share_chooser_title=0x7f060007;
         public static final int thoughts=0x7f060005;
