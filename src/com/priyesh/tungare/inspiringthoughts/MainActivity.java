@@ -77,7 +77,6 @@ public class MainActivity extends Activity {
 	
 
 	private void copyQuote() {
-		// TODO Auto-generated method stub
 		ClipboardManager clipBoard = (ClipboardManager)getSystemService(Context.CLIPBOARD_SERVICE);
 		ClipData data = ClipData.newPlainText("", mInspiringThoughts[mRandomNumber]);
 		clipBoard.setPrimaryClip(data);

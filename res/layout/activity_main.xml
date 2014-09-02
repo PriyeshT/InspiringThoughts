@@ -55,6 +55,4 @@
         android:textStyle="bold"
         style="@style/btnStyleOrange" />
 
-    
-    
 </RelativeLayout>
