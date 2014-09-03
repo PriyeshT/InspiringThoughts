@@ -3,7 +3,6 @@ package com.priyesh.tungare.inspiringthoughts;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Random;
-
 import android.app.Activity;
 import android.app.AlertDialog;
 import android.content.ClipData;
@@ -68,7 +67,6 @@ public class MainActivity extends Activity {
 			
 			@Override
 			public void onClick(View arg0) {
-				// TODO Auto-generated method stub
 				copyQuote();
 			}
 
@@ -164,11 +162,7 @@ public class MainActivity extends Activity {
 
 		    chooserIntent.putExtra(Intent.EXTRA_INITIAL_INTENTS, targetedShareIntents.toArray(new Parcelable[]{}));
 		    startActivity(chooserIntent);
-			
-/*			shareIntent.putExtra(Intent.EXTRA_TEXT, mInspiringThoughts[mRandomNumber]+
-					" - Shared From: Inspiring Thoughts. https://play.google.com/store/apps/details?id=com.priyesh.tungare.inspiringthoughts");
-			startActivity(Intent.createChooser(shareIntent, getString(R.string.share_chooser_title)));*/
-		}
+			}
 		
 	}
 
@@ -189,77 +183,44 @@ public class MainActivity extends Activity {
 	
 	public void setBackgroundImage(){
 		Random random = new Random();
-		int number = random.nextInt(20);
+		int number = random.nextInt(10);
 		selectImage(number);
 	}
 
 	public void selectImage(int number) {
 		switch (number) {
 		case 0:
-			mRelativeLayout.setBackgroundResource(R.drawable.background24);
+			mRelativeLayout.setBackgroundResource(R.drawable.background1);
 			break;
 		case 1:
-			mRelativeLayout.setBackgroundResource(R.drawable.background23);
-			break;
-		case 2:
-			mRelativeLayout.setBackgroundResource(R.drawable.background21);
-			break;
-		case 3:
-			mRelativeLayout.setBackgroundResource(R.drawable.background22);
-			break;
-		case 4:
-			mRelativeLayout.setBackgroundResource(R.drawable.background20);
-			break;
-		case 5:
-			mRelativeLayout.setBackgroundResource(R.drawable.background18);
-			break;
-		case 6:
-			mRelativeLayout.setBackgroundResource(R.drawable.background19);
-			break;
-		case 7:
-			mRelativeLayout.setBackgroundResource(R.drawable.background17);
-			break;
-		case 8:
-			mRelativeLayout.setBackgroundResource(R.drawable.background15);
-			break;
-		case 9:
-			mRelativeLayout.setBackgroundResource(R.drawable.background14);
-			break;
-		case 10:
-			mRelativeLayout.setBackgroundResource(R.drawable.background13);
-			break;
-		case 11:
-			mRelativeLayout.setBackgroundResource(R.drawable.background12);
-			break;
-		case 12:
-			mRelativeLayout.setBackgroundResource(R.drawable.background11);
-			break;
-		case 13:
-			mRelativeLayout.setBackgroundResource(R.drawable.background10);
-			break;
-		case 14:
-			mRelativeLayout.setBackgroundResource(R.drawable.background9);
-			break;
-		case 15:
-			mRelativeLayout.setBackgroundResource(R.drawable.background8);
-			break;
-		case 16:
-			mRelativeLayout.setBackgroundResource(R.drawable.background7);
-			break;
-		case 17:
-			mRelativeLayout.setBackgroundResource(R.drawable.background5);
-			break;
-		case 18:
-			mRelativeLayout.setBackgroundResource(R.drawable.background4);
-			break;
-		case 19:
-			mRelativeLayout.setBackgroundResource(R.drawable.background25);
-			break;
-		case 20:
 			mRelativeLayout.setBackgroundResource(R.drawable.background2);
 			break;
+		case 2:
+			mRelativeLayout.setBackgroundResource(R.drawable.background3);
+			break;
+		case 3:
+			mRelativeLayout.setBackgroundResource(R.drawable.background4);
+			break;
+		case 4:
+			mRelativeLayout.setBackgroundResource(R.drawable.background5);
+			break;
+		case 5:
+			mRelativeLayout.setBackgroundResource(R.drawable.background6);
+			break;
+		case 6:
+			mRelativeLayout.setBackgroundResource(R.drawable.background7);
+			break;
+		case 7:
+			mRelativeLayout.setBackgroundResource(R.drawable.background8);
+			break;
+		case 8:
+			mRelativeLayout.setBackgroundResource(R.drawable.background9);
+			break;
+		case 9:
+			mRelativeLayout.setBackgroundResource(R.drawable.background10);
+			break;
 		default:
-			mRelativeLayout.setBackgroundResource(R.drawable.background25);
+			mRelativeLayout.setBackgroundResource(R.drawable.background1);
 			break;
 		}
 	}
