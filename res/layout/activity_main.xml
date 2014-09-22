@@ -43,15 +43,25 @@
         android:textSize="24sp"
         android:typeface="monospace"
         style="@style/btnStyleOrange" />
+    
+    <fragment
+        android:id="@+id/adFragment"
+        class="com.priyesh.tungare.inspiringthoughts.MainActivity$AdFramgent"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentLeft="true" />
 
     <Button
         android:id="@+id/button2"
+        style="@style/btnStyleOrange"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignLeft="@+id/linearLayout1"
-        android:layout_alignTop="@+id/linearLayout1"
+        android:layout_below="@+id/linearLayout1"
+        android:layout_marginTop="59dp"
         android:text="@string/copy_quote"
-        android:textStyle="bold"
-        style="@style/btnStyleOrange" />
+        android:textStyle="bold" />
 
 </RelativeLayout>

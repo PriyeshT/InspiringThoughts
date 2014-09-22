@@ -3,6 +3,7 @@ package com.priyesh.tungare.inspiringthoughts;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Random;
+
 import android.app.Activity;
 import android.app.AlertDialog;
 import android.content.ClipData;
@@ -15,16 +16,21 @@ import android.content.res.Resources;
 import android.graphics.Color;
 import android.os.Bundle;
 import android.os.Parcelable;
+import android.app.Fragment;
 import android.text.TextUtils;
+import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.View.OnClickListener;
+import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.google.android.gms.ads.AdRequest;
+import com.google.android.gms.ads.AdView;
 import com.tjeannin.apprate.AppRate;
 
 public class MainActivity extends Activity {
@@ -36,7 +42,7 @@ public class MainActivity extends Activity {
 	Random randomGenerator = new Random();
 	public final static String TAG = MainActivity.class.getSimpleName();
 	protected String[] mInspiringThoughts;
-	protected int mRandomNumber = 110;
+	protected int mRandomNumber = 150;
 	public static int mCount;
 	public static Context mContext;
 	
@@ -224,4 +230,20 @@ public class MainActivity extends Activity {
 			break;
 		}
 	}
+	
+	public static class AdFramgent extends Fragment{
+        @Override
+        public View onCreateView(LayoutInflater inflater, ViewGroup container,
+                                 Bundle savedInstanceState) {
+            return inflater.inflate(R.layout.fragment_ad, container, false);
+        }
+
+        @Override
+        public void onActivityCreated(Bundle bundle) {
+            super.onActivityCreated(bundle);
+            AdView mAdView = (AdView) getView().findViewById(R.id.adView);
+            AdRequest adRequest = new AdRequest.Builder().build();
+            mAdView.loadAd(adRequest);
+        }
+    }
 }
