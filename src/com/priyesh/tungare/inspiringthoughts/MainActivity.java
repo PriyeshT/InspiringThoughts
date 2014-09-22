@@ -18,6 +18,7 @@ import android.os.Bundle;
 import android.os.Parcelable;
 import android.app.Fragment;
 import android.text.TextUtils;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.MenuItem;
@@ -42,7 +43,7 @@ public class MainActivity extends Activity {
 	Random randomGenerator = new Random();
 	public final static String TAG = MainActivity.class.getSimpleName();
 	protected String[] mInspiringThoughts;
-	protected int mRandomNumber = 150;
+	protected int mRandomNumber = 200;
 	public static int mCount;
 	public static Context mContext;
 	
@@ -64,7 +65,7 @@ public class MainActivity extends Activity {
 			public void onClick(View v) {
 				mCopyQuoteButton.setVisibility(View.VISIBLE);
 				mCount++;
-				mRandomNumber = randomGenerator.nextInt(97);
+				mRandomNumber = randomGenerator.nextInt(getResources().getStringArray(R.array.quotes).length);
 				setTextOnClick(mRandomNumber);
 			}
 		});
@@ -135,9 +136,8 @@ public class MainActivity extends Activity {
 		List<Intent> targetedShareIntents = new ArrayList<Intent>();
 		Intent shareIntent = new Intent(Intent.ACTION_SEND);
 		shareIntent.setType("text/plain");
-		String shareBody = mInspiringThoughts[mRandomNumber] + 
-				"- Shared From: Inspiring Thoughts. https://play.google.com/store/apps/details?id=com.priyesh.tungare.inspiringthoughts";
-		if(mRandomNumber == 110){
+		Log.d("Random Number is: &&*%&%*%&%*%&%*%&%*%&%", mRandomNumber+ "");
+		if(mRandomNumber == 200){
 			AlertDialog.Builder builder = new AlertDialog.Builder(this);
 			builder.setTitle(getString(R.string.title));
 			builder.setMessage(getString(R.string.error_message));
@@ -145,7 +145,8 @@ public class MainActivity extends Activity {
 			AlertDialog dialog = builder.create();
 			dialog.show();
 		}else{
-			
+			String shareBody = mInspiringThoughts[mRandomNumber] + 
+					"- Shared From: Inspiring Thoughts. https://play.google.com/store/apps/details?id=com.priyesh.tungare.inspiringthoughts";
 			PackageManager pm = view.getContext().getPackageManager();
 			List<ResolveInfo> activityList = pm.queryIntentActivities(shareIntent, 0);
 			for(final ResolveInfo app : activityList) {
